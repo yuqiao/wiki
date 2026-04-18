@@ -1,0 +1,9 @@
+# 大型文件
+raw/papers/
+
+# 系统文件
+.DS_Store
+.Trashes
+
+# Obsidian 工作区配置（可选择性提交）
+.obsidian/workspace.json
