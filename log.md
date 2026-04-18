@@ -327,3 +327,41 @@
   - 拉波波特法则学术评价最高，推荐在所有批评场景使用
 - Cross-references: [[奥卡姆剃刀]]、[[直觉泵]]、[[史特金定律]]、[[拉波波特法则]]、[[犯错儿]]、[[归谬法]]、[[丹尼尔·丹尼特]]
 - Total pages: 155 (1 new)
+
+## [2026-04-18] create | 番茄工作法.md
+- Source: 用户查询补充
+- Pages created:
+  - concepts/番茄工作法.md — 时间管理技术，25分钟专注+5分钟休息
+- Key takeaways: 25分钟专注时段降低启动阻力；定时休息防止疲劳积累；番茄钟不可分割，被打断则作废；任务拆分与合并技巧；灵活调整时长（15/30/45分钟）
+- Cross-references: [[深度工作]]（专注力质量）、[[时间块]]（另一种时间管理）、[[巨人的工具]]（多位成功人士使用）
+- Total pages: 156 (1 new)
+
+## [2026-04-18] create | LLM Wiki方法论.md
+- Source: Karpathy gist + 用户请求详细讲解
+- Pages created:
+  - concepts/LLM Wiki方法论.md — 知识管理方法论完整解析
+- Key takeaways: 三层架构（raw/wiki/schema）、三大操作（ingest/query/lint）、五步认知法结构、页面阈值规则、人机分工、常见陷阱
+- Cross-references: [[番茄工作法]]、[[深度工作]]、[[多元思维模型]]、[[好心情生产力]]
+- Total pages: 157 (1 new)
+
+## [2026-04-18] create | comparisons/GTD vs 深度工作.md
+- Source: [[搞定]] + [[深度工作]] + 用户请求对比
+- Pages created:
+  - comparisons/GTD vs 深度工作.md — 完整对比分析
+- Key takeaways: GTD 管理"做什么"（浮浅工作为主），深度工作决定"做得怎样"（价值创造为主）；对比维度包括核心目标、处理对象、时间观、方法论结构、局限性；互补使用模式：深度优先→GTD清理→保护深度→每周回顾
+- Cross-references: [[搞定]]、[[深度工作]]、[[GTD工作流程]]、[[深度工作概念]]、[[浮浅工作]]、[[注意力残留]]
+- Total pages: 158 (1 new)
+
+## [2026-04-18] ingest | 高效的秘密.epub
+- Source: raw/books/高效的秘密_摘要.md (查尔斯·都希格《高效的秘密》全书摘要)
+- Pages created:
+  - entities/高效的秘密.md — 书籍概述，8个秘诀
+  - entities/查尔斯·都希格.md — 作者介绍，普利策奖获得者
+  - concepts/心理安全.md — 高效团队的关键因素
+  - concepts/心智模型.md — 避免认知隧道的方法
+  - concepts/延展目标.md — 突破渐进思维的目标设定
+  - concepts/概率思维.md — 做决定的核心工具
+  - concepts/认知隧道.md — 自动化时代的专注陷阱
+- Key takeaways: 8个效率秘诀：激发动力（把任务变成选择）、团队合作（心理安全）、保持专注（构建心智模型）、设定目标（延展目标+SMART目标）、掌控力（大权在握感）、做决定（概率思维）、创新（创造性借鉴）、数据应用（信息差异化）
+- Cross-references: [[高效能法则]]、[[搞定]]、[[原子习惯]]、[[丹尼尔·卡尼曼]]、[[亚当·格兰特]]
+- Total pages: 162 (7 new)
