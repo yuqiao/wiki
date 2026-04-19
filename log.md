@@ -336,6 +336,22 @@
 - Cross-references: [[深度工作]]（专注力质量）、[[时间块]]（另一种时间管理）、[[巨人的工具]]（多位成功人士使用）
 - Total pages: 156 (1 new)
 
+## [2026-04-19] create | 想法记录模板.md
+- 来源：用户请求
+- 页面创建：
+  - concepts/想法记录模板.md — 个人想法记录规范
+- Key takeaways: 想法记录区别读书笔记（来源自我而非外部）；五步认知法结构化；frontmatter sources 留空；命名小写+连字符；wikilinks 建立关联；可迭代更新
+- Cross-references: [[LLM Wiki方法论]]、[[晨间笔记]]、[[每日反思]]、[[深度学习]]、[[SCHEMA.md]]
+- Total pages: 173 (1 new)
+
+## [2026-04-19] create | AI时代投资方向.md
+- 来源：用户想法记录
+- 页面创建：
+  - concepts/ai时代投资方向.md — AI时代投资逻辑
+- Key takeaways: "光铜电冰存"五字箴言概括基础设施投资方向；技术本身非护城河，私有数据才是核心竞争力；普通人应养"电子龙虾"作为杠杆，向"艺人公司"模式转型
+- Cross-references: [[三种杠杆]]、[[复利效应]]、[[专长]]、[[好心情生产力]]、[[深度工作]]
+- Total pages: 174 (1 new)
+
 ## [2026-04-18] create | LLM Wiki方法论.md
 - Source: Karpathy gist + 用户请求详细讲解
 - Pages created:
@@ -362,6 +378,98 @@
   - concepts/延展目标.md — 突破渐进思维的目标设定
   - concepts/概率思维.md — 做决定的核心工具
   - concepts/认知隧道.md — 自动化时代的专注陷阱
-- Key takeaways: 8个效率秘诀：激发动力（把任务变成选择）、团队合作（心理安全）、保持专注（构建心智模型）、设定目标（延展目标+SMART目标）、掌控力（大权在握感）、做决定（概率思维）、创新（创造性借鉴）、数据应用（信息差异化）
-- Cross-references: [[高效能法则]]、[[搞定]]、[[原子习惯]]、[[丹尼尔·卡尼曼]]、[[亚当·格兰特]]
-- Total pages: 162 (7 new)
+|- Key takeaways: 8个效率秘诀：激发动力（把任务变成选择）、团队合作（心理安全）、保持专注（构建心智模型）、设定目标（延展目标+SMART目标）、掌控力（大权在握感）、做决定（概率思维）、创新（创造性借鉴）、数据应用（信息差异化）
+|- Cross-references: [[高效能法则]]、[[搞定]]、[[原子习惯]]、[[丹尼尔·卡尼曼]]、[[亚当·格兰特]]
+|- Total pages: 162 (7 new)
+
+## [2026-04-18] ingest | Hermes Agent从入门到精通.pdf + ClaudeCode从入门到精通-v2.0.0.pdf
+|- Source 1: raw/papers/Hermes-Agent-从入门到精通_摘要.md (花叔橙皮书系列)
+|- Source 2: raw/papers/ClaudeCode从入门到精通-v2.0.0_摘要.md (花叔橙皮书系列第2版)
+|- Author: 花叔 (公众号「花叔」、B站「AI进化论-花生」)
+|- Pages created:
+|  - entities/Hermes Agent从入门到精通.md — 橙皮书概述，学习循环、三层记忆、Skill自改进实战指南
+|  - entities/Claude Code从入门到精通.md — 橙皮书v2版概述，终端Agent完全指南
+|  - entities/Hermes Agent.md — Nous Research开源框架，27000+ stars，MIT许可
+|  - entities/Claude Code.md — Anthropic终端Agent，GA后6个月10亿美元年化收入
+|  - entities/花叔.md — 橙皮书作者，从未手写过代码
+|  - entities/Boris Cherny.md — Claude Code创建者，47天46天都在用
+|  - entities/Mitchell Hashimoto.md — Terraform创造者，Harness Engineering实践者
+|  - entities/Nous Research.md — Hermes开发方，2026年2月发布
+|  - entities/Anthropic.md — Claude Code开发方，MCP提出者
+|  - concepts/Harness Engineering.md — 给AI造缰绳的方法论，五组件模型
+|  - concepts/学习循环.md — Hermes核心机制，五环节飞轮
+|  - concepts/三层记忆.md — 会话/持久/Skill三层架构，SQLite+FTS5
+|  - concepts/Skill自改进.md — Skill自己长出来自己变好
+|  - concepts/agentskills.io.md — Skill互通标准，30+工具支持
+|  - concepts/MCP (Model Context Protocol).md — AI工具USB接口，6000+应用
+|  - concepts/终端Agent.md — 终端原生运行，区别IDE Agent
+|  - concepts/CLAUDE.md.md — 项目记忆文件，手动Harness实践
+|- Key takeaways: 
+|  - Harness Engineering核心洞察：瓶颈不是模型，是环境
+|  - Hermes是第一个出厂就带缰绳的Agent，缰绳会自己长大
+|  - Claude Code是独立工程师团队，不是结对伙伴
+|  - 三年三变：Copilot→Cursor→Claude Code（输入法→结对伙伴→独立团队）
+|  - agentskills.io让Skill成为可移植资产
+|  - MCP是AI工具世界的USB接口
+|  - 花叔组合使用：Claude Code（白天团队）+ Hermes（夜班团队）
+|- Cross-references added: 与LLM Wiki方法论（知识管理）、深度工作（专注）、多元思维模型（知识框架）的关联
+|- Total pages: 172 (14 new)
+
+## [2026-04-19] create | 第一性原理.md
+- 来源：用户查询 + zh.wikipedia.org/wiki/第一原理
+- 页面创建：
+  - concepts/第一性原理.md — 思维工具，从本质出发重构而非类比模仿
+- Key takeaways: 
+  - 第一性原理是最基本的命题或假设，不能被省略或违反
+  - 亚里士多德最早提出，物理学中称"从头算"
+  - 马斯克经典案例：SpaceX火箭成本（原材料价格不到2%）、Tesla电池成本（从金属交易所价格出发）
+  - 三步法：识别拆解→质疑假设→从本质重构
+  - 与类比思维对比：根本创新vs局部改良
+  - AI时代应用：工作（做AI不能做的事）、生活（减少琐事增加深度）、投资（光铜电冰存基础设施）
+- Cross-references: [[奥卡姆剃刀]]、[[逆向思考]]、[[多元思维模型]]、[[归谬法]]、[[AI时代投资方向]]、[[深度工作]]、[[三种杠杆]]、[[专长]]
+- Total pages: 175 (1 new)
+
+## [2026-04-19] create | Git 工作流最佳实践.md
+- 来源：用户查询 + Atlassian Git Tutorial + Martin Fowler Feature Toggles
+- 页面创建：
+  - concepts/git-workflow-best-practices.md — Git 工作流完整指南
+- Key takeaways:
+  - Gitflow 已是 legacy 工作流，现代推荐 Trunk-Based + Feature Flags
+  - 功能分支必须从 develop 拉出（而非 release），否则合入 develop 时大量冲突
+  - Feature Flags 解决"develop 有未完成功能不能发布"问题：代码可合并但功能默认关闭
+  - GitLab Flow 环境分支推进模式：通过 cherry-pick 选择性发布成熟功能
+  - 心法：分支越少越好、越短越好；功能开关优先；环境推进而非合并
+- Cross-references: [[Feature Flags]]、[[Trunk-Based Development]]、[[持续交付]]、[[第一性原理]]
+- Total pages: 176 (1 new)
+
+## [2026-04-19] create | Trunk-Based Development + Feature Flags
+- 来源：用户深入研究 Git 工作流中的 Trunk-Based Development 概念
+- 页面创建：
+  - concepts/trunk-based-development.md — 主干开发完整指南
+  - concepts/feature-flags.md — 功能开关完整指南
+- Key takeaways:
+  - Trunk-Based Development 核心原则：永远不破坏构建，永远保持可发布状态
+  - "距离"概念（Frank Compagner）：分支创建开发者与代码集成点的距离，越短越好
+  - 关键前提条件：构建时间 < 10分钟、高测试覆盖、故事粒度几小时、VCS 快速同步
+  - Feature Flags 四种分类（Martin Fowler）：Release、Experiment、Ops、Permission Toggles
+  - Trunk-Based + Feature Flags = 现代持续交付最佳实践
+- Cross-references: [[Git 工作流最佳实践]]、[[持续交付]]、[[A/B测试]]
+- Total pages: 178 (2 new)
+
+## [2026-04-20] ingest | OpenAI Harness Engineering (JavaGuide 解析)
+- Source: raw/articles/javaguide-harness-engineering-2026.md (JavaGuide 对 OpenAI 原文的详细解析)
+- Pages updated:
+  - concepts/Harness Engineering.md — 添加六层架构、上下文40%阈值、OpenAI/Anthropic实战案例
+  - entities/Anthropic.md — 添加三智能体架构、context resets策略
+- Pages created:
+  - entities/OpenAI.md — OpenAI公司介绍，五大方法论
+  - concepts/渐进式披露.md — Progressive Disclosure原则
+  - concepts/熵管理.md — Garbage Collection for AI-generated code
+- Key takeaways:
+  - OpenAI案例：3人5月百万行零手写代码，效率提升10倍
+  - 五大方法论：地图式文档、机械化约束、可观测性给Agent看、熵管理、仓库为唯一事实源
+  - 上下文40%阈值：超过此比例Agent输出质量明显下降
+  - Anthropic三智能体架构：Planner→Generator⇄Evaluator，借鉴GAN思路
+  - Context Resets：清空上下文窗口但保留结构化交接文档
+- Cross-references: [[Harness Engineering]]、[[OpenAI]]、[[Anthropic]]、[[渐进式披露]]、[[熵管理]]
+- Total pages: 182 (4 new)

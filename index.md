@@ -2,11 +2,14 @@
 
 > Content catalog. Every wiki page listed under its type with a one-line summary.
 > Read this first to find relevant pages for any query.
-> Last updated: 2026-04-18 | Total pages: 158
+> Last updated: 2026-04-20 | Total pages: 182
 
 ## Entities
 
 ### Books
+
+- [[Hermes Agent从入门到精通]] — 花叔橙皮书系列，Nous Research开源AI Agent实战指南，涵盖学习循环、三层记忆、Skill自改进、MCP集成。
+- [[Claude Code从入门到精通]] — 花叔橙皮书系列第2版，Anthropic AI编程工具完全指南，涵盖终端Agent、CLAUDE.md、Skills/Hooks/MCP。
 
 - [[关于说话的一切]] — **第一部分：说话的原理（第1-7章）**
 - [[原则]] — 《原则》是瑞·达利欧的代表作，分享了他从普通中产阶级家庭孩子成长为时代最成功人士之一的核心原则。书中...
@@ -25,6 +28,10 @@
 - [[高效的秘密]] — [[查尔斯·都希格]]著，揭示效率背后的心理学原理。提出8个秘诀：激发动力、团队合作、保持专注、设定目标、掌控力、做决定、创新、数据应用。核心论点：效率不意味着超额工作，而在于做出选择的方式。
 
 ### Authors
+
+- [[花叔]] — 橙皮书系列作者，公众号「花叔」、B站「AI进化论-花生」。专注AI Agent实战教程，已从未手写过代码。
+- [[Boris Cherny]] — Claude Code创建者，Anthropic工程师。用Opus后47天里46天都在用，从未手写过代码。
+- [[Mitchell Hashimoto]] — Terraform/Vagrant创造者，Harness Engineering实践者。每次Agent犯错就在CLAUDE.md加规则。
 
 - [[周岭]] — 个人成长领域作家，公众号"清脑"作者。36岁开始觉醒探索，从脑科学、认知科学、心理学等学科中找到成长...
 - [[尼尔·布朗]] — 批判性思维领域专家，《学会提问》主要作者。
@@ -50,7 +57,29 @@
 - [[丹尼尔·丹尼特]] — 美国哲学家、认知科学家，塔夫茨大学教授。专攻心灵哲学、科学哲学和生物哲学，"新达尔文主义"代表人物。提出意向立场、直觉泵概念，代表作《直觉泵和其他思考工具》《达尔文的危险观念》。
 - [[查尔斯·都希格]] — 普利策奖获得者，《纽约时报》调查记者。著有《习惯的力量》和《高效的秘密》，以深度调查和跨学科研究著称，将神经科学、心理学研究成果融入商业和管理。
 
+### Tools
+
+- [[Hermes Agent]] — Nous Research开源AI Agent框架，自改进学习循环，三层记忆，Skill系统，24/7后台运行。
+- [[Claude Code]] — Anthropic终端Agent，独立工程师团队而非结对伙伴，GA后6个月10亿美元年化收入。
+- [[Nous Research]] — Hermes Agent开发方，2026年2月发布，开源MIT许可。
+- [[Anthropic]] — Claude Code开发方，2025年发布，MCP协议提出者。三智能体架构（Planner→Generator⇄Evaluator），context resets策略。
+- [[OpenAI]] — GPT模型开发方，2026年发布Harness Engineering方法论，3人5月百万行零手写代码案例。
+
 ## Concepts
+
+- [[Harness Engineering]] — 给AI造缰绳的方法论。Mitchell Hashimoto命名，瓶颈不是模型是环境。六层架构：L1信息边界→L6约束恢复。上下文40%阈值。
+- [[渐进式披露]] — Progressive Disclosure。先给核心摘要，需要时再按需加载。AGENTS.md只当目录用，约100行。
+- [[熵管理]] — Garbage Collection for AI-generated code。熵不会自己消失，必须主动对抗。后台Agent定期扫描清理。
+- [[学习循环]] — Hermes核心机制，五个环节：策划记忆→创建Skill→Skill自改进→FTS5召回→用户建模。
+- [[三层记忆]] — 会话记忆（情景）、持久记忆（语义）、Skill记忆（程序性），SQLite+FTS5索引。
+- [[Skill自改进]] — Hermes最独特能力，Skill自己长出来、自己变好，agentskills.io标准。
+- [[agentskills.io]] — Skill互通标准，30+工具支持，一个Skill插到哪都能跑。
+- [[MCP (Model Context Protocol)]] — AI工具世界的USB接口，Anthropic提出，6000+应用覆盖。
+- [[终端Agent]] — 在终端原生运行的AI Agent，直接操作操作系统，区别于IDE内嵌Agent。
+- [[CLAUDE.md]] — Claude Code项目记忆文件，给AI一张地图，手动Harness Engineering实践。
+- [[想法记录模板]] — 个人想法/灵感/洞见的记录规范。用于捕捉和沉淀自己的思考成果。区别于读书笔记（来源外部），想法记录源于自我思考。五步认知法结构化。
+- [[AI时代投资方向]] — "光铜电冰存"五字箴言：光通信、铜缆、电力、液冷、存储。技术非护城河，私有数据才是核心竞争力。普通人养"电子龙虾"作杠杆，向"艺人公司"模式转型。
+- [[第一性原理]] — 最基本的命题或假设，不能被省略或违反。从本质出发重新构建，而非类比模仿。马斯克经典案例：SpaceX火箭成本、Tesla电池成本。AI时代应用于工作、生活、投资的本质分析。
 
 - [[10-10-10法则]] — **10/10/10法则**是一种认知再评价方法，通过问自己"10分钟后/10周后/10年后这还重要吗"减少恐惧和焦虑。
 - [[1000个真正的粉丝]] — 凯文·凯利提出的理论：**一个人只需要1000个"真正的粉丝"，就能维持生计并创造有意义的作品。**
@@ -182,6 +211,9 @@
 - [[延展目标]] — 用梦想设定商业目标但不包含达成方法。与SMART目标组合使用：延展目标激发创新，SMART目标提供执行路径。
 - [[概率思维]] — 把未来想象成一系列可能出现的结果，每种结果概率不同。把直觉变成统计估值，而非猜测会发生什么。
 - [[认知隧道]] — 突发情况下大脑只盯着眼前最明显信息、忽略全局的现象。自动化时代尤其危险，需主动构建心智模型避免。
+- [[Git 工作流最佳实践]] — 团队协作开发时管理分支、合并和发布的策略。解决功能分支偏离、未完成功能误入生产等问题。主流方案：Gitflow（legacy）、Feature Flags、Trunk-Based、GitLab Flow。
+- [[Trunk-Based Development]] — 主干开发，现代推荐工作流。开发者小规模高频更新直接合并到单一主干，永远不破坏构建，永远保持可发布状态。与 Feature Flags 配合使用。
+- [[Feature Flags]] — 功能开关，将"技术完成"和"业务上线"解耦。未完成功能用开关保护，主干始终可发布。Trunk-Based Development 的关键配套实践。
 
 ## Comparisons
 
