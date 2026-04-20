@@ -56,6 +56,84 @@ Harness Engineering是一套方法论，核心思想是：**瓶颈不是模型�
 | 记忆层 | 存储知识和经验 | 手动维护knowledge base | 三层记忆 + Honcho |
 | 编排层 | 多Agent协作 | 自己搭pipeline | 子Agent委派 + cron |
 
+### 实施心法：验证而非教导
+
+**核心洞察**：与其教 agent 怎么做，不如让它验证做得对不对。靠代码、linter、测试来保证正确性，而不是靠 LLM 的"直觉"。
+
+把"对不对"的判断从 LLM 脑子里移出来，交给工程工具链：
+
+#### 1. 测试优先
+
+```python
+# ❌ 告诉 agent "写一个排序函数"
+# ✅ 给 agent 测试，让它跑通
+
+def test_sort():
+    assert sort([3,1,2]) == [1,2,3]
+    assert sort([]) == []
+    assert sort([1]) == [1]
+```
+
+agent 不需要"理解"排序，只需要让测试通过。测试是客观的裁判。
+
+#### 2. 类型契约
+
+```typescript
+// ❌ 靠 prompt 说"返回用户对象"
+// ✅ 用类型系统强制
+
+interface User {
+  id: string;
+  name: string;
+}
+function getUser(id: string): User  // 类型检查器强制执行
+```
+
+#### 3. Linter + 格式化
+
+- agent 生成代码 → `ruff check` / `eslint` 自动报错
+- 不用说服它"写规范代码"，lint 不通过就重来
+- 错误消息本身就是修正指令
+
+#### 4. 沙箱执行验证
+
+```bash
+# ❌ 问 agent "这个脚本对吗？"
+# ✅ 跑一下看结果
+
+docker run --rm my-script && echo "OK"
+```
+
+实际跑一遍，退出码 0 就是正确。
+
+#### 5. 结构化输出 + Schema 验证
+
+```python
+# 用 Pydantic/Outlines 强制输出格式
+from pydantic import BaseModel
+
+class Response(BaseModel):
+    action: Literal["create", "delete"]
+    target: str
+
+response = Response.model_validate_json(llm_output)  # 不符合就报错
+```
+
+#### 对比总结
+
+| ❌ 靠 LLM | ✅ 靠 Harness |
+|---------|-------------|
+| "写正确的代码" | 写能通过测试的代码 |
+| "输出 JSON 格式" | Schema 验证失败就重试 |
+| "这个逻辑对吗？" | 跑一下看结果 |
+| "注意边界情况" | 测试覆盖边界情况 |
+| "理解需求" | 让测试描述需求 |
+
+**本质**：把 LLM 当成"搜索解空间"的引擎，验证正确性的"裁判"交给工具。这样：
+- 不需要 prompt engineering 到完美
+- 不依赖 LLM 的"理解"
+- 可复现、可调试、可量化
+
 ### Mitchell Hashimoto的做法
 
 每次Agent犯了一个错，就在CLAUDE.md里加一条规则：

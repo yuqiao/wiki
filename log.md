@@ -5,6 +5,14 @@
 > Actions: ingest, update, query, lint, create, archive, delete
 > When this file exceeds 500 entries, rotate: rename to log-YYYY.md, start fresh.
 
+## [2026-04-20] ingest | 宝玉《为什么你的"AI 优先"战略可能大错特错？》
+- Source: https://baoyu.io/blog/2026-04-13/ai-first
+- 原文翻译: Peter Pang《Why Your "AI-First" Strategy Is Probably Wrong》
+- Pages created:
+  - concepts/ai-first战略反思.md — AI First 落地五大前提、适用场景、脚手架工程方法论
+  - concepts/脚手架工程.md — Harness Engineering，CREAO实践案例
+- Key takeaways: AI First 不是把 AI 塞进现有流程而是彻底重构；落地需要测试、CI/CD、监控、架构、任务管理五大基础；脚手架工程是让 AI 可检查可验证可修改的方法论；初级工程师比资深工程师适应更快
+
 ## [2026-04-18] create | Wiki initialized
 - Domain: 知识管理、思维方法、投资智慧
 - Structure created with SCHEMA.md, index.md, log.md
@@ -473,3 +481,40 @@
   - Context Resets：清空上下文窗口但保留结构化交接文档
 - Cross-references: [[Harness Engineering]]、[[OpenAI]]、[[Anthropic]]、[[渐进式披露]]、[[熵管理]]
 - Total pages: 182 (4 new)
+
+## [2026-04-20] update | Harness Engineering 实施心法
+- Discussion: Weixin chat，讨论"验证而非教导"的实施方法
+- Pages updated:
+  - concepts/Harness Engineering.md — 添加"实施心法：验证而非教导"章节
+- Key takeaways:
+  - 核心：把"对不对"的判断从 LLM 脑子里移出来，交给工程工具链
+  - 五种方法：测试优先、类型契约、Linter+格式化、沙箱执行、Schema验证
+|  - 本质：LLM 是搜索解空间的引擎，验证正确性的裁判交给工具
+|- Cross-references: [[Harness Engineering]]
+
+## [2026-04-20] create | 单Agent问题.md
+|- 来源：用户查询总结"大模型agent开发，单agent问题"
+|- 页面创建：
+|  - concepts/单Agent问题.md — 单Agent架构的结构性限制分析
+|- Key takeaways:
+|  - 六大问题：上下文饱和（40%阈值）、长链路失控、自我纠错难、能力边界模糊、知识散落、熵累积
+|  - 解法框架：六层Harness架构（L1信息边界→L6约束恢复）
+|  - P0/P1/P2行动清单：AGENTS.md、Linter、知识仓库化为P0优先级
+|  - Context Resets技术：清空上下文窗口但保留结构化交接
+|  - 多Agent架构：Planner→Generator⇄Evaluator三智能体分工
+|  - 熵对抗原则：清理速度 ≥ 生成速度
+|- Cross-references: [[Harness Engineering]]、[[Context Engineering]]、[[agentskills.io]]、[[Claude Code]]、[[Hermes Agent]]
+|- Total pages: 183 (1 new)
+
+## [2026-04-20] create | 乐观者成功悲观者正确.md
+|- 来源：用户查询"乐观者成功悲观者正确"这句话的评价与原理
+|- 页面创建：
+|  - concepts/乐观者成功悲观者正确.md — 悖论分析与最优策略
+|- Key takeaways:
+|  - 核心悖论：乐观者因错误信念（过度自信）而行动并成功，悲观者因正确判断而不行动但平庸
+|  - 心理学原理：过度自信的双面性、损失厌恶抑制行动、自我实现的预言
+|  - 三种人格比较：纯乐观者（高方差）、纯悲观者（低方差平庸）、理性乐观者（最优）
+|  - 最优策略：乐观启动 + 悲观风控 + 动态调整
+|  - 纳瓦尔总结："乐观是一种策略，悲观是一种分析方法"
+|- Cross-references: [[过度自信]]、[[损失厌恶]]、[[前景理论]]、[[纳瓦尔]]
+|- Total pages: 184 (1 new)
