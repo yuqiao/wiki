@@ -492,6 +492,23 @@
 |  - 本质：LLM 是搜索解空间的引擎，验证正确性的裁判交给工具
 |- Cross-references: [[Harness Engineering]]
 
+## [2026-04-21] ingest | 用户画像导入
+- 创建 entities/用户画像.md（从Obsidian导入）
+- 更新 index.md
+
+## [2026-04-21] create | AI赚钱方案推荐
+- 搜索V2EX分享创造节点，发现Nyro（AI网关）、Agent工具等案例
+- 创建 concepts/AI赚钱方案推荐.md
+- 5个方案：AI网关、垂直Agent、AI自动化服务、知识产品、API中转
+- 基于[[用户画像]]匹配分析，推荐方案1/2/3/4
+- 更新 index.md
+- Source: ~/Library/Mobile Documents/iCloud~md~obsidian/Documents/EasyLife/200_Area/201_Upgrade_升级/用户画像分析.md
+- Pages created:
+  - raw/articles/用户画像分析-2026.md — 原文保存
+  - entities/用户画像.md — 个人画像分析页面
+- Key takeaways: AI应用开发者/程序员；关注LLM/Agent/RAG/ClaudeCode；第一性原理思维（马斯克五步工作法）；系统化思维（拆透自己比坚持有用）；实践导向学习（最小可行任务）；效率至上（Vim/tmux/LazyVim）；价值观：无欲则刚、摆脱恐惧、持续迭代、专注深耕；笔记风格：what/why/how结构、PARA方法论；AI协作原则：用类比解释、提供实践任务、关注builders、第一性原理分析
+- Total pages: 183 (2 new)
+
 ## [2026-04-20] create | 单Agent问题.md
 |- 来源：用户查询总结"大模型agent开发，单agent问题"
 |- 页面创建：

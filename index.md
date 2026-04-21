@@ -2,9 +2,13 @@
 
 > Content catalog. Every wiki page listed under its type with a one-line summary.
 > Read this first to find relevant pages for any query.
-> Last updated: 2026-04-20 | Total pages: 182
+> Last updated: 2026-04-21 | Total pages: 184
 
 ## Entities
+
+### Profiles
+
+- [[用户画像]] — AI应用开发者/程序员，关注LLM/Agent/RAG，第一性原理思维，实践导向学习，Vim/tmux效率派，PARA方法论管理知识。
 
 ### Books
 
@@ -66,6 +70,7 @@
 - [[OpenAI]] — GPT模型开发方，2026年发布Harness Engineering方法论，3人5月百万行零手写代码案例。
 
 ## Concepts
+- [[AI赚钱方案推荐]] — 5个适合技术型AI开发者赚钱的方案，基于用户画像匹配分析
 
 - [[Harness Engineering]] — 给AI造缰绳的方法论。Mitchell Hashimoto命名，瓶颈不是模型是环境。六层架构：L1信息边界→L6约束恢复。上下文40%阈值。
 - [[渐进式披露]] — Progressive Disclosure。先给核心摘要，需要时再按需加载。AGENTS.md只当目录用，约100行。
