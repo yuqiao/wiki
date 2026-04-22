@@ -2,7 +2,7 @@
 
 > Content catalog. Every wiki page listed under its type with a one-line summary.
 > Read this first to find relevant pages for any query.
-> Last updated: 2026-04-21 | Total pages: 184
+> Last updated: 2026-04-21 | Total pages: 185
 
 ## Entities
 
@@ -71,6 +71,7 @@
 
 ## Concepts
 - [[AI赚钱方案推荐]] — 5个适合技术型AI开发者赚钱的方案，基于用户画像匹配分析
+- [[保险经纪人Agent验证方案]] — 方案2的具体验证路径，1周最小可行任务
 
 - [[Harness Engineering]] — 给AI造缰绳的方法论。Mitchell Hashimoto命名，瓶颈不是模型是环境。六层架构：L1信息边界→L6约束恢复。上下文40%阈值。
 - [[渐进式披露]] — Progressive Disclosure。先给核心摘要，需要时再按需加载。AGENTS.md只当目录用，约100行。

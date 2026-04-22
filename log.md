@@ -502,6 +502,19 @@
 - 5个方案：AI网关、垂直Agent、AI自动化服务、知识产品、API中转
 - 基于[[用户画像]]匹配分析，推荐方案1/2/3/4
 - 更新 index.md
+
+## [2026-04-21] create | 保险经纪人Agent验证方案
+- 用户选择方案2→保险领域→经纪人Agent
+- 创建 concepts/保险经纪人Agent验证方案.md
+- 最小可行任务：1周验证经纪人痛点+原型试用
+- 商业模式：免费/付费($99)/专业版($299)
+- 验证成功标准：至少2个经纪人说"我要付费"
+- 更新 index.md
+- 搜索V2EX分享创造节点，发现Nyro（AI网关）、Agent工具等案例
+- 创建 concepts/AI赚钱方案推荐.md
+- 5个方案：AI网关、垂直Agent、AI自动化服务、知识产品、API中转
+- 基于[[用户画像]]匹配分析，推荐方案1/2/3/4
+- 更新 index.md
 - Source: ~/Library/Mobile Documents/iCloud~md~obsidian/Documents/EasyLife/200_Area/201_Upgrade_升级/用户画像分析.md
 - Pages created:
   - raw/articles/用户画像分析-2026.md — 原文保存
