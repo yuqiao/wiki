@@ -5,6 +5,56 @@
 > Actions: ingest, update, query, lint, create, archive, delete
 > When this file exceeds 500 entries, rotate: rename to log-YYYY.md, start fresh.
 
+## [2026-04-24] ingest | 设计模式.pdf
+- Source: ~/Downloads/设计模式.pdf (GoF《设计模式：可复用面向对象软件的基础》中文版)
+- Pages created:
+  - entities/设计模式.md — 书籍概述，23个模式分类表，四要素，MVC案例，与SOLID关系
+  - concepts/设计模式.md — 核心概念，五步认知法结构，用法/原理/心法
+- Key takeaways: 设计模式是面向对象设计的武功秘籍；23个模式分创建型5个、结构型7个、行为型11个；模式四要素（名称、问题、解决方案、效果）；MVC体现Observer/Composite/Strategy三模式；与SOLID原则紧密关联
+
+## [2026-04-24] ingest | 设计模式.pdf - 5个核心模式详解
+|- Source: ~/Downloads/设计模式.pdf (提取Singleton、Observer、Strategy、Factory Method、Decorator详细内容)
+|- Pages created:
+|  - concepts/singleton单件模式.md — 保证唯一实例的全局访问点，类自身控制实例化
+|  - concepts/observer观察者模式.md — 一对多依赖关系，发布订阅机制
+|  - concepts/strategy策略模式.md — 算法封装与替换，消除条件语句
+|  - concepts/factory-method工厂方法模式.md — 虚构造器，延迟实例化到子类
+|  - concepts/decorator装饰模式.md — 动态添加职责，递归嵌套装饰
+|- Key takeaways: Singleton替代全局变量；Observer是MVC核心；Strategy替代继承消除条件；Factory Method解耦框架与应用；Decorator改变外壳vs Strategy改变内核
+|- Updated: index.md 添加5个新概念页面
+|
+|## [2026-04-24] ingest | 设计模式.pdf - 剩余18个模式详解
+|- Source: ~/Downloads/设计模式.pdf (提取剩余18个设计模式详细内容)
+|- Pages created (创建型):
+|  - concepts/abstract-factory抽象工厂模式.md — 创建产品家族，保证一致性
+|  - concepts/builder生成器模式.md — 复杂对象构建与表示分离
+|  - concepts/prototype原型模式.md — 克隆替代实例化
+|- Pages created (结构型):
+|  - concepts/adapter适配器模式.md — 接口转换，让不兼容类协同
+|  - concepts/bridge桥接模式.md — 抽象与实现分离
+|  - concepts/composite组合模式.md — 树形结构，部分-整体统一处理
+|  - concepts/facade外观模式.md — 简化子系统接口
+|  - concepts/flyweight享元模式.md — 共享支持大量细粒度对象
+|  - concepts/proxy代理模式.md — 控制访问的代理器
+|- Pages created (行为型):
+|  - concepts/chain-of-responsibility职责链模式.md — 沿链传递请求
+|  - concepts/command命令模式.md — 请求封装为对象
+|  - concepts/interpreter解释器模式.md — 文法表示和解释器
+|  - concepts/iterator迭代器模式.md — 顺序访问不暴露内部
+|  - concepts/mediator中介者模式.md — 封装对象交互
+|  - concepts/memento备忘录模式.md — 捕获恢复状态
+|  - concepts/state状态模式.md — 状态改变行为
+|  - concepts/template-method模板方法模式.md — 算法骨架延迟步骤
+|  - concepts/visitor访问者模式.md — 不改变元素添加新操作
+|- Key takeaways: GoF 23个模式全部收录完成；创建型5个、结构型7个、行为型11个；每个模式使用五步认知法结构（概念→价值→用法→原理→心法）；添加完整wikilinks交叉引用
+|- Updated: index.md 添加18个新概念页面，设计模式部分共25条（SOLID + 设计模式概述 + 23个模式）
+|
+## [2026-04-24] create | SOLID原则
+|- Source: 用户提问，整理自软件工程经典知识
+|- Pages created:
+|  - concepts/solid原则.md — 面向对象设计五大核心原则
+|- Key takeaways: SRP单一职责、OCP开闭、LSP里氏替换、ISP接口隔离、DIP依赖倒置；核心是降低耦合、提高内聚
+
 ## [2026-04-20] ingest | 宝玉《为什么你的"AI 优先"战略可能大错特错？》
 - Source: https://baoyu.io/blog/2026-04-13/ai-first
 - 原文翻译: Peter Pang《Why Your "AI-First" Strategy Is Probably Wrong》

@@ -1,6 +1,34 @@
 {
   "recentFiles": [
     {
+      "basename": "iterator迭代器模式",
+      "path": "concepts/iterator迭代器模式.md"
+    },
+    {
+      "basename": "composite组合模式",
+      "path": "concepts/composite组合模式.md"
+    },
+    {
+      "basename": "CLAUDE",
+      "path": "concepts/CLAUDE.md"
+    },
+    {
+      "basename": "command命令模式",
+      "path": "concepts/command命令模式.md"
+    },
+    {
+      "basename": "adapter适配器模式",
+      "path": "concepts/adapter适配器模式.md"
+    },
+    {
+      "basename": "设计模式",
+      "path": "concepts/设计模式.md"
+    },
+    {
+      "basename": "solid原则",
+      "path": "concepts/solid原则.md"
+    },
+    {
       "basename": "用户画像",
       "path": "entities/用户画像.md"
     },
