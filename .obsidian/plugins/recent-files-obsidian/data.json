@@ -1,6 +1,14 @@
 {
   "recentFiles": [
     {
+      "basename": "Skill自改进",
+      "path": "concepts/Skill自改进.md"
+    },
+    {
+      "basename": "Harness Engineering",
+      "path": "concepts/Harness Engineering.md"
+    },
+    {
       "basename": "iterator迭代器模式",
       "path": "concepts/iterator迭代器模式.md"
     },
@@ -31,10 +39,6 @@
     {
       "basename": "用户画像",
       "path": "entities/用户画像.md"
-    },
-    {
-      "basename": "Skill自改进",
-      "path": "concepts/Skill自改进.md"
     },
     {
       "basename": "ai-first战略反思",
