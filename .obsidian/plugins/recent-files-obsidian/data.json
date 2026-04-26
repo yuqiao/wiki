@@ -1,12 +1,32 @@
 {
   "recentFiles": [
     {
-      "basename": "Skill自改进",
-      "path": "concepts/Skill自改进.md"
-    },
-    {
       "basename": "Harness Engineering",
       "path": "concepts/Harness Engineering.md"
+    },
+    {
+      "basename": "Generator-Evaluator分离",
+      "path": "concepts/Generator-Evaluator分离.md"
+    },
+    {
+      "basename": "Sprint Contract",
+      "path": "concepts/Sprint Contract.md"
+    },
+    {
+      "basename": "index",
+      "path": "index.md"
+    },
+    {
+      "basename": "log",
+      "path": "log.md"
+    },
+    {
+      "basename": "脚手架工程",
+      "path": "concepts/脚手架工程.md"
+    },
+    {
+      "basename": "Skill自改进",
+      "path": "concepts/Skill自改进.md"
     },
     {
       "basename": "iterator迭代器模式",

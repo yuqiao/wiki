@@ -595,6 +595,153 @@
 |  - 心理学原理：过度自信的双面性、损失厌恶抑制行动、自我实现的预言
 |  - 三种人格比较：纯乐观者（高方差）、纯悲观者（低方差平庸）、理性乐观者（最优）
 |  - 最优策略：乐观启动 + 悲观风控 + 动态调整
-|  - 纳瓦尔总结："乐观是一种策略，悲观是一种分析方法"
-|- Cross-references: [[过度自信]]、[[损失厌恶]]、[[前景理论]]、[[纳瓦尔]]
-|- Total pages: 184 (1 new)
+- 纳瓦尔总结："乐观是一种策略，悲观是一种分析方法"
+- Cross-references: [[过度自信]]、[[损失厌恶]]、[[前景理论]]、[[纳瓦尔]]
+- Total pages: 184 (1 new)
+
+## [2026-04-26] ingest | Martin Fowler: Harness Engineering (Birgitta Böckeler)
+- Source: https://martinfowler.com/articles/harness-engineering.html
+- Author: Birgitta Böckeler (Thoughtworks Distinguished Engineer)
+- Published: 02 April 2026
+- Pages created:
+  - raw/articles/martinfowler-harness-engineering-2026.md — 原文完整抓取
+  - entities/Birgitta Böckeler.md — Harness Engineering系统化梳理者，Guides/Sensors框架提出者
+  - concepts/Feedforward vs Feedback.md — 前馈与反馈核心框架
+  - concepts/Ambient Affordances.md — 环境结构特性决定Harnessability
+  - concepts/Ashby's Law.md — 必要多样性定律在Harness中的应用
+- Pages updated:
+  - concepts/Harness Engineering.md — 添加Birgitta框架、三种Regulation Categories、开放问题
+- Key takeaways:
+  - Feedforward (Guides) 事前引导 vs Feedback (Sensors) 事后纠错
+  - Computational (CPU确定性) vs Inferential (GPU语义分析)
+  - 三种Regulation: Maintainability/Architecture fitness/Behaviour harness
+  - Behaviour harness是"房间里的大象"——AI生成测试验证AI生成代码是"用同一双眼睛检查自己的作业"
+  - Ambient affordances: 环境结构特性决定Harness能做多好
+|
+|## [2026-04-26] ingest | LangChain: The Anatomy of an Agent Harness
+|- Source: https://www.langchain.com/blog/the-anatomy-of-an-agent-harness
+|- Author: Vivek Trivedy (LangChain工程师)
+|- Published: March 10, 2026
+|- Pages created:
+|  - raw/articles/langchain-anatomy-of-agent-harness-2026.md — 原文完整抓取
+|  - entities/Vivek Trivedy.md — LangChain工程师，提出Context Rot和Ralph Loop
+|  - entities/LangChain.md — Agent开发框架公司，开源deepagents
+|  - concepts/Context Rot.md — 上下文窗口填满时模型推理能力下降
+|  - concepts/Ralph Loop.md — 拦截模型退出强制继续工作的Harness模式
+|- Pages updated:
+|  - concepts/Harness Engineering.md — 添加LangChain五组件推导、Context Rot策略、Model-Harness Coupling洞察、未来方向
+|  - index.md — 添加4个新页面
+|- Key takeaways:
+|  - Agent = Model + Harness：如果不是模型，就是Harness
+|  - 五组件推导：从"模型做不到什么"推导Filesystem/Bash/Sandbox/Memory/Context Management
+|  - Context Rot：上下文填满时推理变差，对抗策略包括Compaction/Tool offloading/Skills/Ralph Loop
+|  - Ralph Loop：拦截退出，干净上下文重启，文件系统使状态持久化可行
+|  - Model-Harness Coupling：训练包含模型和Harness形成反馈循环，但创造过拟合
+|  - 关键发现：最好的Harness不是模型训练时用的那个——只改Harness排名Top30→Top5
+|  - Harness未来方向：数百Agent并行、Self-analysis traces、Dynamic assembly工具
+|- Cross-references: [[Harness Engineering]]、[[Vivek Trivedy]]、[[LangChain]]、[[Context Rot]]、[[Ralph Loop]]、[[渐进式披露]]
+|- Total pages: 195 (4 new)
+|
+|## [2026-04-26] ingest | Anthropic: Harness Design for Long-Running Application Development
+|- Source: https://www.anthropic.com/engineering/harness-design-long-running-apps
+|- Author: Prithvi Rajasekaran (Anthropic Labs团队成员)
+|- Published: March 24, 2026
+|- Pages created:
+|  - raw/articles/anthropic-harness-design-long-running-2026.md — 原文完整抓取
+|  - entities/Prithvi Rajasekaran.md — Anthropic Labs工程师，三智能体架构设计者
+|  - concepts/Context Anxiety.md — 模型接近上下文限制时提前收工
+|  - concepts/Sprint Contract.md — 每个Sprint前协商完成标准
+|  - concepts/Generator-Evaluator分离.md — 借鉴GAN思路，做工作和评判工作分开
+|- Pages updated:
+|  - entities/Anthropic.md — 添加Sprint Contract、评分标准、Context Resets vs Compaction、Opus 4.6简化
+|  - concepts/Harness Engineering.md — 添加Anthropic三智能体架构、Context Resets vs Compaction、Generator-Evaluator分离、Sprint Contract、评分标准、简化原则
+|  - index.md — 添加5个新页面
+|- Key takeaways:
+|  - 三智能体架构：Planner → Generator ⇄ Evaluator，借鉴GAN思路
+|  - Context Anxiety：模型接近上下文限制时提前收工，Sonnet 4.5强/Opus 4.5弱
+|  - Context Resets vs Compaction：清空上下文+结构化交接 vs 原位总结
+|  - Generator-Evaluator分离：调教独立Evaluator使其挑剔比让Generator自评更容易
+|  - Sprint Contract：每个Sprint前协商完成标准，桥接高层级spec和可测试实现
+|  - 前端设计评分标准：Design Quality/Originality/Craft/Functionality，权重前两项
+|  - Harness简化原则：每个组件编码模型做不到什么的假设，值得stress testing
+|  - Opus 4.6简化：移除sprint construct，Evaluator变成single pass at end
+|  - Evaluator价值边界：worth the cost when task sits beyond what model does reliably solo
+|  - Harness组合空间：不随模型改进缩小，而是移动
+|- Cross-references: [[Anthropic]]、[[Prithvi Rajasekaran]]、[[Harness Engineering]]、[[Context Anxiety]]、[[Generator-Evaluator分离]]、[[Sprint Contract]]
+|- Total pages: 200 (5 new)
+|
+|## [2026-04-26] ingest | Anthropic: Harnessing Claude's Intelligence (Lance Martin)
+|- Source: https://claude.com/blog/harnessing-claudes-intelligence
+|- Author: Lance Martin (Anthropic Claude Platform team)
+|- Published: April 2, 2026
+|- Raw article saved to: raw/articles/anthropic-harnessing-claudes-intelligence-2026.md
+|- Pages created:
+|  - entities/Lance Martin.md — Anthropic Claude Platform团队成员，三大模式提出者
+|  - entities/Chris Olah.md — Anthropic联合创始人，"Grown more than built"理念
+|  - concepts/Orchestration Decision.md — 决定工具调用结果如何流动的决策权
+|  - concepts/Memory Folder.md — Claude持久化上下文到文件的机制
+|- Pages updated:
+|  - concepts/Harness Engineering.md — 添加Lance Martin三大模式、Orchestration Decision、Context Management策略、Cache Optimization、Auto-mode Pattern
+|  - index.md — 添加4个新页面
+|- Key takeaways:
+|  - 三大模式：Use what Claude knows + Ask what can I stop doing + Set boundaries carefully
+|  - "Grown more than built"：AI系统更像培育而非建造
+|  - Orchestration Decision：从harness移到model，Give Claude code execution tool
+|  - BrowseComp数据：Opus 4.6 accuracy 45.3%→61.6%（+filter own tool outputs）
+|  - Context Management：Skills、Context editing、Subagents、Compaction、Memory folder
+|  - Compaction scaling：Sonnet 4.5 43% vs Opus 4.6 84%（same budget）
+|  - Memory folder：Sonnet 4.5 BrowseComp-Plus 60.4%→67.2%
+|  - Pokémon case study：Sonnet 3.5 transcript-style vs Opus 4.6 tactical notes
+|  - Cache Optimization：Static first/Messages for updates/Don't change models/Manage tools/Update breakpoints
+|  - Cached tokens: 10% cost of base input tokens
+|  - Auto-mode Pattern：second Claude judges bash command safety
+|  - Context Anxiety evolution：Sonnet 4.5强→Opus 4.5消失→resets变dead weight
+|- Cross-references: [[Anthropic]]、[[Lance Martin]]、[[Chris Olah]]、[[Harness Engineering]]、[[Orchestration Decision]]、[[Memory Folder]]、[[Context Anxiety]]
+|- Total pages: 205 (4 new)
+|  - 绿地vs棕地: Harness最需要的地方最难建
+|  - Ashby's Law应用: 定义topology是variety-reduction move
+|- Cross-references: [[Harness Engineering]]、[[Birgitta Böckeler]]、[[Feedforward vs Feedback]]、[[Ambient Affordances]]、[[Ashby's Law]]
+|- Total pages: 191 (4 new)
+
+## [2026-04-26] ingest | Anthropic: Scaling Managed Agents
+- Source: https://www.anthropic.com/engineering/managed-agents
+- Author: Lance Martin, Gabe Cemaj, Michael Cohen
+- Pages created:
+  - raw/articles/anthropic-scaling-managed-agents-2026.md — 原文完整版
+  - concepts/Managed Agents.md — Anthropic托管服务，Brain/Hands/Session虚拟化架构
+- Pages updated:
+  - entities/Anthropic.md — 添加Managed Agents托管服务章节
+  - entities/Lance Martin.md — 添加Managed Agents文章贡献
+  - concepts/Harness Engineering.md — 添加Managed Agents托管服务案例
+- Key takeaways:
+  - 借鉴OS虚拟化硬件模式，虚拟化Agent三个组件：Session、Harness、Sandbox
+  - Brain/Hands/Session解耦：每个组件都是cattle（可替换），不是pet（不可丢失）
+  - 性能：p50 TTFT 60%下降，p95 TTFT 90%下降
+  - 安全边界：tokens从不reachable from sandbox，vault+proxy模式隔离
+  - Meta-harness设计：接口稳定，实现可随模型演进更换
+  - Bitter Lesson应用：Harness假设会过时，接口设计不编码具体假设
+- Cross-references: [[Anthropic]]、[[Lance Martin]]、[[Harness Engineering]]、[[Managed Agents]]
+- Total pages: 206 (1 new)
+
+## [2026-04-26] ingest | Martin Fowler: Encoding Team Standards (Rahul Garg)
+- Source: https://martinfowler.com/articles/reduce-friction-ai/encoding-team-standards.html
+- Author: Rahul Garg (Thoughtworks Principal Engineer)
+- Published: 31 March 2026
+- Series: Patterns for Reducing Friction in AI-Assisted Development
+- Pages created:
+  - raw/articles/martinfowler-encoding-team-standards-2026.md — 原文完整版
+  - entities/Rahul Garg.md — Thoughtworks Principal Engineer，Executable Governance提出者
+  - concepts/Executable Governance.md — 团队标准编码为可执行AI指令
+- Pages updated:
+  - entities/Birgitta Böckeler.md — 添加Rahul Garg交叉引用（Thoughtworks同僚）
+  - concepts/脚手架工程.md — 添加Executable Governance交叉引用
+- Key takeaways:
+  - 核心概念：Executable Governance，团队标准编码为可执行AI指令
+  - Two moves：From tacit to explicit + From documentation to execution
+  - 指令解剖学：Role + Context + Categorized Standards + Output 四元素
+  - 团队规模启发式：Teams of 5 may not need, Teams of 15 almost certainly do
+  - Standards as Shared Infrastructure：仓库中的prompt是基础设施，个人机器上是生产力技巧
+  - 隐性知识提取：访谈资深工程师，问题直接映射指令结构
+  - 与Birgitta Böckeler互补：Birgitta聚焦如何给AI建约束，Rahul聚焦如何把人判断编码进系统
+- Cross-references: [[Rahul Garg]]、[[Birgitta Böckeler]]、[[Executable Governance]]、[[脚手架工程]]、[[Harness Engineering]]、[[CLAUDE.md]]
+- Total pages: 208 (2 new)

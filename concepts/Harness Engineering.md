@@ -1,12 +1,16 @@
 ---
 title: Harness Engineering
-created: 2026-04-18
-updated: 2026-04-20
+created: 2026-04-24
+updated: 2026-04-26
 type: concept
 tags: [方法论, AI编程, Agent, 六层架构]
-sources: 
+sources:
   - raw/papers/Hermes-Agent-从入门到精通_摘要.md
   - raw/articles/javaguide-harness-engineering-2026.md
+  - raw/articles/martinfowler-harness-engineering-2026.md
+  - raw/articles/langchain-anatomy-of-agent-harness-2026.md
+  - raw/articles/anthropic-harness-design-long-running-2026.md
+  - raw/articles/anthropic-harnessing-claudes-intelligence-2026.md
 ---
 
 # Harness Engineering
@@ -45,6 +49,236 @@ Harness Engineering是一套方法论，核心思想是：**瓶颈不是模型�
 | L6 | 约束、校验与恢复层 | 出错了怎么办 | 预设规则拦截错误，提供重试或回滚 |
 
 **投入产出比最高**: L1（信息边界）+ L6（约束与恢复）。L1 决定 Agent 知道该干什么，L6 决定它搞砸了能不能拉回来。
+
+### Birgitta Böckeler 的 Guides/Sensors 框架（2026）
+
+**[[Birgitta Böckeler]]** 在 Martin Fowler 网站提出更精细的控制框架：
+
+| 类型 | 名称 | 作用时机 | 目标 |
+|------|------|----------|------|
+| Guides | Feedforward（前馈） | Agent 行动前 | 增加正确结果的概率 |
+| Sensors | Feedback（反馈） | Agent 行动后 | 发现错误，触发自纠 |
+
+**执行类型**：
+
+| 类型 | 硬件 | 特点 | 速度 |
+|------|------|------|------|
+| Computational | CPU | 确定性，可靠 | 毫秒-秒 |
+| Inferential | GPU/NPU | 语义分析，非确定性 | 慢，贵 |
+
+单独使用的失败模式：
+- **Feedback-only**: Agent 重复犯同样的错误
+- **Feedforward-only**: 编码规则但不知道是否生效
+
+### 三种 Regulation Categories（Birgitta Böckeler）
+
+| 类别 | 调节什么 | 难度 | 现有工具 |
+|------|----------|------|----------|
+| Maintainability harness | 内部代码质量 | 低 | 最多 |
+| Architecture fitness harness | 架构特性 | 中 | Fitness Functions |
+| Behaviour harness | 功能正确性 | 高 | 几乎缺席 |
+
+**Behavior harness 是"房间里的大象"**：如何引导和感知应用功能是否正确？
+
+当前主流做法：
+- Feed-forward: 功能规格（从简短提示到多文件描述）
+- Feedback: AI 生成的测试套件是否绿色
+
+**Böckeler 的尖锐批评**：
+> 这 puts a lot of faith into AI-generated tests, that's not good enough yet——用 AI 生成的测试验证 AI 生成的代码，本质上是用同一双眼睛检查自己的作业。
+
+### Harnessability（环境可治理性）
+
+**[[Ambient Affordances]]**：环境本身的结构特性决定了 Harness 能做多好。
+
+- 强类型语言天然有类型检查作 sensor
+- 清晰模块边界方便定义架构约束
+- Spring 等框架抽象细节，Agent 不需操心
+
+**绿地 vs 棁地**：
+- **绿地项目**：从 day one 把 harnessability 植入
+- **棕地项目**：Harness 最需要的地方最难建——比作"在从未用过静态分析工具的代码库上运行静态分析"
+
+### Ashby's Law 应用
+
+**[[Ashby's Law]]**：regulator 必须有至少与系统同样的 variety，只能 regulate 它有 model 的东西。
+
+应用：
+> LLM-based coding agent 可以产生几乎任何东西，但 committing to a topology narrows that space。Defining topologies is a variety-reduction move。
+
+**Harness templates**：预定义的 guides + sensors 捆绑包，可能成为未来的服务模板。
+
+### 开放问题（Birgitta Böckeler）
+
+- 如何保持 Harness 随增长保持 coherent？guides 和 sensors 同步、不互相矛盾？
+- 当指令和反馈信号指向不同方向时，能信任 Agent 做合理权衡吗？
+- 如果 sensors 从不触发，是高质量还是检测机制不足？
+- 需要 harness coverage/quality 的评估方法，类似测试的 code coverage 和 mutation testing
+
+### LangChain 的五组件推导（Vivek Trivedy）
+
+**[[Vivek Trivedy]]** 在 LangChain 博客提出从"模型做不到什么"推导 Harness 设计：
+
+> If you're not the model, you're the harness.
+
+| 模型做不到 | Harness 补什么 | 核心组件 |
+|------------|----------------|----------|
+| 持久状态 | 文件系统抽象 + fs-ops | Filesystem |
+| 执行代码 | Bash + 通用工具 | Bash + Code exec |
+| 安全执行 | Sandbox 环境 | Sandboxes |
+| 记忆/新知识 | AGENTS.md + Web Search | Memory & Search |
+| 上下文衰减 | Compaction + Skills | Context Management |
+
+### Context Rot（Vivek Trivedy）
+
+**[[Context Rot]]**：上下文窗口填满时，模型推理能力下降、任务完成质量变差。
+
+Harness 对抗策略：
+- **Compaction**：上下文接近填满时智能压缩
+- **Tool call offloading**：保留工具输出头尾 token，完整输出存文件
+- **Skills**：渐进式披露，只保留 front-matter 在上下文
+- **Ralph Loop**：拦截模型退出，在干净上下文强制继续
+
+### Model-Harness Coupling 洞察（LangChain）
+
+Agent 产品（Claude Code、Codex）训练时包含模型和 Harness，形成反馈循环：
+- 有用的 primitives 被发现 → 加入 Harness → 用于训练下一代模型
+
+**副作用**：改变工具逻辑导致模型表现变差（过拟合）。
+
+**关键发现**：最好的 Harness 不是模型训练时用的那个。Terminal Bench 2.0 显示 Opus 4.6 在 Claude Code Harness 下得分远低于其他 Harness。
+
+LangChain 实验：只改 Harness，排名 Top 30 → Top 5。
+
+### Harness 未来方向（LangChain）
+
+- Orchestration: 数百 Agent 并行工作在共享代码库
+- Self-analysis: Agent 分析自己 traces，识别 Harness-level 失败
+- Dynamic assembly: 按任务动态组装工具和上下文
+
+### Anthropic 的三智能体架构（Prithvi Rajasekaran）
+
+**[[Prithvi Rajasekaran]]** 在 Anthropic Labs 博客提出借鉴 GAN 思路的三智能体架构：
+
+> Taking inspiration from Generative Adversarial Networks (GANs), I designed a multi-agent structure with a generator and evaluator agent.
+
+**架构**：Planner → Generator ⇄ Evaluator
+
+| 角色 | 职责 |
+|------|------|
+| Planner | 1-4 句 prompt → 16-feature spec，强调 ambitious scope |
+| Generator | one-feature-at-a-time (sprints)，self-evaluate at end |
+| Evaluator | Playwright MCP click through running app，grade against criteria |
+
+**解决的核心问题**：
+
+| 问题 | 表现 | 解法 |
+|------|------|------|
+| Context Anxiety | Sonnet 4.5 快到上下文上限时草草收工 | Context Resets + 结构化交接 |
+| Self-Evaluation | Agent 自信满满夸自己做得好 | Generator-Evaluator 分离 |
+
+### Context Resets vs Compaction（Anthropic）
+
+明确区分两种策略：
+
+| | Context Resets | Compaction |
+|---|---|---|
+| 定义 | 清空上下文，启动全新 Agent | 原位总结早期对话 |
+| Slate | 干净 | 不干净 |
+| Context Anxiety | 消除 | 可能残留 |
+| 适用模型 | Sonnet 4.5（context anxiety 强） | Opus 4.5+（context anxiety 弱） |
+
+### Generator-Evaluator 分离（Anthropic）
+
+核心洞察：调教独立 Evaluator 使其挑剔，比让 Generator 批判自己更容易。
+
+> Separating the agent doing the work from the agent judging it proves to be a strong lever... tuning a standalone evaluator to be skeptical turns out to be far more tractable than making a generator critical of its own work.
+
+原因：Out of the box, Claude is a poor QA agent——identify issues → talk itself into deciding they're not a big deal。
+
+### Sprint Contract（Anthropic）
+
+每个 Sprint 前 Generator 和 Evaluator 协商"完成标准"：
+
+> Before each sprint, the generator and evaluator negotiated a sprint contract: agreeing on what "done" looked like before any code was written.
+
+目的：bridge gap between high-level spec and testable implementation。
+
+**粒度示例**：Sprint 3 alone had 27 criteria covering the level editor。
+
+### 前端设计评分标准（Anthropic）
+
+四项评分标准（权重 Design Quality + Originality > Craft + Functionality）：
+
+| 标准 | 检查内容 |
+|------|----------|
+| Design Quality | 整体 vs 零件拼凑，颜色/字体/布局创造独特 mood |
+| Originality | 自定义决策 vs 模板默认，惩罚"AI slop"模式 |
+| Craft | 技术执行：字体层级、间距、色彩和谐 |
+| Functionality | 可用性：用户能理解界面、找到操作 |
+
+### Harness 简化原则（Anthropic）
+
+> Every component in a harness encodes an assumption about what the model can't do on its own, and those assumptions are worth stress testing.
+
+> Find the simplest solution possible, and only increase complexity when needed.
+
+**Opus 4.6 → 移除 sprint construct**：Evaluator 变成 single pass at end。
+
+**Evaluator 的价值边界**：worth the cost when task sits beyond what current model does reliably solo。
+
+### Harness 组合空间（Anthropic）
+
+> The space of interesting harness combinations doesn't shrink as models improve. Instead, it moves, and the interesting work for AI engineers is to keep finding the next novel combination.
+
+### Claude Intelligence 三大模式（Lance Martin）
+
+Anthropic Claude Platform 团队成员 Lance Martin 在《Harnessing Claude's Intelligence》提出：
+
+| 模式 | 核心思想 |
+|------|----------|
+| Use what Claude knows | 用 Claude 理解的工具构建应用（bash + text editor） |
+| Ask "what can I stop doing?" | 测试 harness 中关于 Claude 不能做的假设 |
+| Set boundaries carefully | 用 declarative tools 设定 UX/安全/可观测边界 |
+
+**"Grown more than built"**（Chris Olah）：
+> Generative AI systems like Claude are grown more than they are built. Researchers set the conditions to direct growth, but the exact structure or capabilities that emerge aren't always predictable.
+
+**Orchestration Decision**：决定工具调用结果如何处理的决策。从 harness 移到 model。
+
+- 传统假设：every tool result should flow back through context window
+- Lance Martin 提出：Give Claude code execution tool，让它自己编排
+- BrowseComp：Opus 4.6 accuracy 45.3% → 61.6%（+16.3%）
+
+**Context Management 策略**：
+
+| 策略 | 机制 | 效果 |
+|------|------|------|
+| Skills | YAML frontmatter pre-loaded，渐进披露 | 减少 pre-loaded tokens |
+| Context editing | 移除 stale context | 清理旧工具结果/thinking blocks |
+| Subagents | Fork fresh context | Opus 4.6 BrowseComp +2.8% |
+| Compaction | Claude 总结过去上下文 | Opus 4.6 BrowseComp 84%（vs Sonnet 4.5 43%） |
+| Memory folder | 写上下文到文件 | Sonnet 4.5 BrowseComp-Plus 60.4% → 67.2% |
+
+**Cache Optimization**：
+
+| Principle | Description |
+|-----------|-------------|
+| Static first, dynamic last | stable content first |
+| Messages for updates | append `<system-reminder>` |
+| Don't change models | caches are model-specific |
+| Carefully manage tools | tools in cached prefix |
+| Update breakpoints | move to latest message |
+
+Cached tokens: 10% cost of base input tokens.
+
+**Auto-mode Pattern**：second Claude reads bash command and judges safety。Limits need for dedicated tools。
+
+**Context Anxiety Evolution**：
+- Sonnet 4.5：wrap up prematurely → added resets
+- Opus 4.5：behavior gone → resets became dead weight
+
+> Removing this dead weight is important because it can bottleneck Claude's performance.
 
 ### 五组件模型（简化版）
 
@@ -224,6 +458,30 @@ Planner（规划者）→ Generator（执行者）⇄ Evaluator（评估者）
 
 **Context Resets**：当一个 Agent 的上下文接近饱和时，直接清空上下文窗口，但通过结构化的交接文档把关键状态留下来。
 
+**Managed Agents 托管服务**（2026年4月）：
+
+Anthropic 发布《Scaling Managed Agents》，提出托管服务架构——借鉴 OS 虚拟化硬件的模式，将 Agent 的组件虚拟化：
+
+| 组件 | 定义 | 接口 |
+|------|------|------|
+| Session | 事件日志（append-only） | `getSession(id)` |
+| Harness | 调用 Claude + 路由工具调用 | `wake(sessionId)` |
+| Sandbox | 执行环境 | `execute(name, input) → string` |
+
+**Brain/Hands/Session 解耦**：
+- Brain（Claude + Harness）调用 Hands 如调用普通 tool
+- 每个组件都是 cattle（可替换），不是 pet（不可丢失）
+- 性能：p50 TTFT 60% 下降，p95 TTFT 90% 下降
+
+**Meta-harness 设计哲学**：
+> We're opinionated about the shape of these interfaces, not about what runs behind them.
+
+接口稳定，实现可随模型演进更换——解决 Bitter Lesson 问题：Harness 编码的假设会过时。
+
+**安全边界设计**：tokens 从不 reachable from sandbox。两种模式：
+1. Auth bundled with resource（Git clone 时注入）
+2. Vault outside sandbox（MCP tools via proxy）
+
 ### 三层控制模式（Kief Morris）
 
 | 层级 | 说明 | 你的角色 |
@@ -262,3 +520,8 @@ Hermes把Harness五组件全部内建，而且让它们自动运转：
 - [[上下文工程]]
 - [[渐进式披露]]
 - [[熵管理]]
+- [[Birgitta Böckeler]]
+- [[Feedforward vs Feedback]]
+- [[Managed Agents]]
+- [[Ambient Affordances]]
+- [[Ashby's Law]]

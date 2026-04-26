@@ -2,7 +2,7 @@
 
 > Content catalog. Every wiki page listed under its type with a one-line summary.
 > Read this first to find relevant pages for any query.
-> Last updated: 2026-04-24 | Total pages: 187
+> Last updated: 2026-04-26 | Total pages: 208
 
 ## Entities
 
@@ -37,6 +37,9 @@
 - [[花叔]] — 橙皮书系列作者，公众号「花叔」、B站「AI进化论-花生」。专注AI Agent实战教程，已从未手写过代码。
 - [[Boris Cherny]] — Claude Code创建者，Anthropic工程师。用Opus后47天里46天都在用，从未手写过代码。
 - [[Mitchell Hashimoto]] — Terraform/Vagrant创造者，Harness Engineering实践者。每次Agent犯错就在CLAUDE.md加规则。
+- [[Birgitta Böckeler]] — Thoughtworks Distinguished Engineer，AI-assisted delivery专家。Harness Engineering系统化梳理者，提出Guides/Sensors框架、三种Regulation Categories、Ambient Affordances概念。
+- [[Rahul Garg]] — Thoughtworks Principal Engineer，Executable Governance提出者。团队标准编码化系统化实践者，提出指令解剖学四元素结构。
+- [[Vivek Trivedy]] — LangChain工程师，《The Anatomy of an Agent Harness》作者。提出Context Rot概念和Ralph Loop，定义Agent = Model + Harness。
 
 - [[周岭]] — 个人成长领域作家，公众号"清脑"作者。36岁开始觉醒探索，从脑科学、认知科学、心理学等学科中找到成长...
 - [[尼尔·布朗]] — 批判性思维领域专家，《学会提问》主要作者。
@@ -67,8 +70,10 @@
 - [[Hermes Agent]] — Nous Research开源AI Agent框架，自改进学习循环，三层记忆，Skill系统，24/7后台运行。
 - [[Claude Code]] — Anthropic终端Agent，独立工程师团队而非结对伙伴，GA后6个月10亿美元年化收入。
 - [[Nous Research]] — Hermes Agent开发方，2026年2月发布，开源MIT许可。
-- [[Anthropic]] — Claude Code开发方，2025年发布，MCP协议提出者。三智能体架构（Planner→Generator⇄Evaluator），context resets策略。
+- [[Anthropic]] — Claude Code开发方，2025年发布，MCP协议提出者。三智能体架构（Planner→Generator⇄Evaluator），context resets策略，Sprint Contract机制，前端设计评分标准。Lance Martin三大模式（Use what Claude knows + Ask what can I stop doing + Set boundaries carefully），Orchestration Decision，Cache Optimization。
 - [[OpenAI]] — GPT模型开发方，2026年发布Harness Engineering方法论，3人5月百万行零手写代码案例。
+- [[LangChain]] — Agent开发框架公司，开源deepagents Harness构建库。实验证明只改Harness排名Top30→Top5。提出Context Rot概念和Ralph Loop。
+- [[Prithvi Rajasekaran]] — Anthropic Labs工程师，三智能体架构设计者。提出Context Anxiety概念、Generator-Evaluator分离、Sprint Contract机制。
 
 ## Concepts
 
@@ -101,6 +106,13 @@
 - [[保险经纪人Agent验证方案]] — 方案2的具体验证路径，1周最小可行任务
 
 - [[Harness Engineering]] — 给AI造缰绳的方法论。Mitchell Hashimoto命名，瓶颈不是模型是环境。六层架构：L1信息边界→L6约束恢复。上下文40%阈值。
+- [[Context Rot]] — 上下文窗口填满时模型推理能力下降。LangChain提出，Harness对抗策略包括Compaction、Tool offloading、Skills渐进式披露、Ralph Loop。
+- [[Context Anxiety]] — 模型接近上下文限制时提前收工。Anthropic提出，Context Resets解决（清空上下文+结构化交接），与Compaction不同。
+- [[Ralph Loop]] — 拦截模型退出，在干净上下文强制继续工作的Harness模式。文件系统使迭代间状态持久化可行。
+- [[Generator-Evaluator分离]] — 做工作的Agent和评判工作的Agent分开。借鉴GAN思路，调教独立Evaluator使其挑剔比让Generator自评更容易。
+- [[Sprint Contract]] — 每个Sprint前Generator和Evaluator协商完成标准。桥接高层级spec和可测试实现，避免spec错误cascade。
+- [[Orchestration Decision]] — 决定工具调用结果如何流动的决策权。Lance Martin提出从harness移到model，Give Claude code execution tool。BrowseComp：Opus 4.6 accuracy 45.3%→61.6%。
+- [[Memory Folder]] — Claude持久化上下文到文件的机制。Lance Martin提出，Sonnet 4.5 BrowseComp-Plus 60.4%→67.2%。Opus 4.6用tactical notes而非transcript。
 - [[渐进式披露]] — Progressive Disclosure。先给核心摘要，需要时再按需加载。AGENTS.md只当目录用，约100行。
 - [[熵管理]] — Garbage Collection for AI-generated code。熵不会自己消失，必须主动对抗。后台Agent定期扫描清理。
 - [[学习循环]] — Hermes核心机制，五个环节：策划记忆→创建Skill→Skill自改进→FTS5召回→用户建模。
@@ -117,7 +129,12 @@
 - [[乐观者成功悲观者正确]] — 悖论：乐观者因错误信念（过度自信）而行动并成功，悲观者因正确判断而不行动但平庸。解法：理性乐观（乐观启动+悲观风控）。
 - [[AI First战略反思]] — AI First 听着美好，但没有工程基础支撑就是在沙子上盖楼。五大前提：自动化测试、CI/CD、A/B测试监控、任务管理、系统架构。适用后端逻辑产品，不适用UI密集/质量敏感/安全要求高场景。脚手架工程是落地方法论。
 - [[脚手架工程]] — Harness Engineering，OpenAI 2026年提出。工程团队核心工作不再是写代码而是赋能智能体。CREAO案例：99%代码AI写，每天3-8次生产部署，六阶段流水线+自愈反馈循环。
+- [[Executable Governance]] — 可执行治理，团队标准编码为可执行AI指令。Rahul Garg提出，四元素指令结构（Role+Context+Categorized Standards+Output），解决AI输出质量因谁prompting而异的一致性问题。团队15+规模需要，5人团队可能不需要。
 - [[凭感觉编程]] — Vibe Coding，打开Cursor调提示词直到代码能跑。只能做原型验证，生产系统需要脚手架工程兜底确保稳定可靠安全。提示词用完即弃，系统才是核心。
+
+- [[Feedforward vs Feedback]] — Harness Engineering核心框架：Guides（前馈）预期行为事前引导，Sensors（反馈）观察结果事后纠错。Computational确定性快，Inferential语义分析慢但丰富。单独使用都会失败。
+- [[Ambient Affordances]] — 环境本身的结构特性决定Agent能做多好。强类型语言天然有类型检查作sensor，清晰模块边界方便定义架构约束。绿地项目可从day one植入，棕地项目最难建的地方最需要。
+- [[Ashby's Law]] — 必要多样性定律：regulator必须有至少与系统同样的variety，只能regulate它有model的东西。应用于Harness：定义topology是variety-reduction move，使comprehensive Harness更achievable。
 
 - [[10-10-10法则]] — **10/10/10法则**是一种认知再评价方法，通过问自己"10分钟后/10周后/10年后这还重要吗"减少恐惧和焦虑。
 - [[1000个真正的粉丝]] — 凯文·凯利提出的理论：**一个人只需要1000个"真正的粉丝"，就能维持生计并创造有意义的作品。**
@@ -184,6 +201,7 @@
 - [[晨间笔记]] — 蒂姆·费里斯推荐的日记方法：每天早晨写下意识流笔记，主要用于**思考如何摆脱困境或解决问题**（我应...
 - [[番茄工作法]] — 一种时间管理技术，将工作分割为25分钟的专注时段，每段之间短暂休息。核心是**有意识地控制注意力**，降低启动阻力，防止疲劳积累。
 - [[LLM Wiki方法论]] — Karpathy 提出的知识管理方法论：**知识只编译一次，持续维护复用**。三层架构（raw → wiki → schema），三大操作（ingest/query/lint），复利增长替代 RAG 每次重新理解。
+- [[Managed Agents]] — Anthropic 托管服务，借鉴 OS 虚拟化模式，将 Agent 的 Session/Harness/Sandbox 三组件虚拟化。Brain/Hands 解耦，p50 TTFT 60% 下降。Meta-harness 设计：接口稳定，实现可变。
 - [[普世智慧]] — 普世智慧是查理·芒格在演讲中强调的核心概念：掌握各学科的重要道理，形成思维框架，能够自动运用于生活。
 - [[替代原因]] — 除了立论者提出的原因外，可能存在的其他解释。批判性思维要求寻找多元原因而非单一解释。
 - [[极度求真和极度透明]] — 极度求真和极度透明是[[瑞·达利欧]]在[[原则]]中提出的组织文化理念：真诚表达观点（不隐瞒），信...
