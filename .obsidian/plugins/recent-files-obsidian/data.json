@@ -1,6 +1,26 @@
 {
   "recentFiles": [
     {
+      "basename": "巨人的工具",
+      "path": "entities/巨人的工具.md"
+    },
+    {
+      "basename": "原则",
+      "path": "entities/原则.md"
+    },
+    {
+      "basename": "index",
+      "path": "index.md"
+    },
+    {
+      "basename": "关于说话的一切",
+      "path": "entities/关于说话的一切.md"
+    },
+    {
+      "basename": "自然规划模式",
+      "path": "concepts/自然规划模式.md"
+    },
+    {
       "basename": "Harness Engineering",
       "path": "concepts/Harness Engineering.md"
     },
@@ -11,10 +31,6 @@
     {
       "basename": "Sprint Contract",
       "path": "concepts/Sprint Contract.md"
-    },
-    {
-      "basename": "index",
-      "path": "index.md"
     },
     {
       "basename": "log",
